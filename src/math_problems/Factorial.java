@@ -35,10 +35,10 @@ public class Factorial {
         }
     }
     public static void main(String[] args) {
-
+      int x=7;
         Factorial.getFactorialByIteration(7);
         System.out.println("The factorial of "+ x + " is: "+ factIt);
-
+     int y=8;
         Factorial.getFactorialByRecursion(8);
         System.out.println("The factorial of "+ y + " is:"+ result );
 
