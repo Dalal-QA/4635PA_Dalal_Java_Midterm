@@ -70,6 +70,14 @@ public class UseArrayList {
              // Here I am retrieving Data from the DataBase 'world' table 'country'
             String query = "SELECT * FROM country WHERE name = \"Anguilla\" and Region=\"Caribbean\"";
 
+            String insertQuery = "INSERT INTO country (name, region) VALUES ('Dalal', 'Algeria');";
+
+            String retrieveQuery="SELECT* FROM country WHERE name =\"Dalal\" and region =\"Algeria\"";
+
+
+//        int rowsAffected = statement.executeUpdate(insertQuery);
+//        System.out.println("Rows inserted: " + rowsAffected);
+
             try {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
