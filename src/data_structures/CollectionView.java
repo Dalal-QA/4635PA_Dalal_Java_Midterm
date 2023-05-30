@@ -31,7 +31,7 @@ public class CollectionView {
             System.out.println(entry.getKey()+" "+entry.getValue());
         }
 
-        System.out.println("******************************************");
+        System.out.println(" This is another way to retrieve the collection view of the values");
         // second method to retrieve values
         for (Integer in:map.keySet()) {
             System.out.println(in + " : " + map.get(in));

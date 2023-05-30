@@ -1,5 +1,7 @@
 package data_structures;
 
+import java.io.*;
+
 public class DataReader {
 
     /** INSTRUCTIONS
@@ -19,7 +21,26 @@ public class DataReader {
      **/
 
     public static void main(String[] args) {
-        String textFilePath = System.getProperty("user.dir") + "/src/data_structures/data/self-driving-car.txt";
+        // This path is not correct;String textFilePath = System.getProperty("user.dir") + "/src/data_structures/data/self-driving-car.txt";
+        String userDir= System.getProperty("user.dir");
+        String filePath = userDir+ File.separator + "/src/data_structures/data/" + "self-driving-car";
+        File txtFile = new File(filePath);
+
+
+        try {
+            FileReader fr = new FileReader(txtFile);
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+
+            while((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
 
     }
 
