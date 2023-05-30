@@ -19,37 +19,37 @@ public class UseArrayList {
     private static Properties prop;
     private static Connection connection;
     public static void main(String[] args) {
-//        ArrayList<String> arrayList = new ArrayList<>();
-//        // Here I am using add() method to add elements to the ArrayList
-//        arrayList.add("Mazda");
-//        arrayList.add("Porsche");
-//        arrayList.add("Hyundai");
-//        arrayList.add("Lexus");
-//
-//        // here I am using get () method to peek the element at the index 3
-//        String elementAtIndex3 = arrayList.get(3);
-//        System.out.println("The car brand at the index three is: " + elementAtIndex3);
-//
-//        // Here I am using remove() to remove the element at index  2
-//        arrayList.remove(2);
-//        //System.out.println(arrayList.remove(2));
-//
-//
-//        //Retrieve all the data by using for each-loop
-//        System.out.println("The elements of this array list  are: ");
-//         for(String carBrand: arrayList){
-//             System.out.println(carBrand);
-//         }
-//
-//
-//         //Retrieve all the data by using for while loop iterator
-//
-//        System.out.println("The elements of this array list  are: ");
-//         Iterator<String> iterator = arrayList.iterator();
-//         while(iterator.hasNext()){
-//             String carBrand = iterator.next();
-//             System.out.println(carBrand);
-//         }
+        ArrayList<String> arrayList = new ArrayList<>();
+        // Here I am using add() method to add elements to the ArrayList
+        arrayList.add("Mazda");
+        arrayList.add("Porsche");
+        arrayList.add("Hyundai");
+        arrayList.add("Lexus");
+
+        // here I am using get () method to peek the element at the index 3
+        String elementAtIndex3 = arrayList.get(3);
+        System.out.println("The car brand at the index three is: " + elementAtIndex3);
+
+        // Here I am using remove() to remove the element at index  2
+        arrayList.remove(2);
+        //System.out.println(arrayList.remove(2));
+
+
+        //Retrieve all the data by using for each-loop
+        System.out.println("The elements of this array list  are: ");
+         for(String carBrand: arrayList){
+             System.out.println(carBrand);
+         }
+
+
+         //Retrieve all the data by using for while loop iterator
+
+        System.out.println("The elements of this array list  are: ");
+         Iterator<String> iterator = arrayList.iterator();
+         while(iterator.hasNext()){
+             String carBrand = iterator.next();
+             System.out.println(carBrand);
+         }
 
          /*
          Note: the peek() method is not applicable to ArrayList because ArrayList is not a data structure that inherently supports the concept of "peeking" at the top or front element.
@@ -75,8 +75,6 @@ public class UseArrayList {
             String retrieveQuery="SELECT* FROM country WHERE name =\"Dalal\" and region =\"Algeria\"";
 
 
-//        int rowsAffected = statement.executeUpdate(insertQuery);
-//        System.out.println("Rows inserted: " + rowsAffected);
 
             try {
                 Statement statement = connection.createStatement();
