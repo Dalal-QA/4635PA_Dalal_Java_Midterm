@@ -1,70 +1,125 @@
 ***ANSWER ALL OF THE QUESTIONS BELOW***
 
 Why do we need data structure?
-Answer:
+Answer:Data structures are essential in Java programming as they provide efficient ways to store, manipulate, and manage data. They help organize code, optimize algorithms, facilitate memory management, and improve overall program performance. The rich set of data structures available in Java, including the Java Collection Framework, makes it easier for developers to work with data effectively.
 
 What are the various operations that can be performed on different data structures?
-Answer:
+Answer: on Array:
+ Accessing elements by index
+ Modifying elements by index
+ Searching for an element
+ Sorting elements
+ Copying or cloning array
+ Concatenating arrays
+On LinkedList:
+Adding elements to the beginning, end, or at a specific index
+Removing elements by index or value
+Accessing elements by index
+Modifying elements by index
+Checking the size of the LinkedList
+Searching for an element
+Iterating over the elements
+On HashSet:
+Adding elements
+Removing elements
+Checking if an element exists
+Checking the size of the HashSet
+Iterating over the elements
+On HashMap:
+Adding key-value pairs
+Removing key-value pairs
+Retrieving values by key
+Checking if a key exists
+Checking the size of the HashMap
+Iterating over the key-value pairs
+Clearing the HashMap
+On PriorityQueue:
+Adding elements
+Removing the highest-priority element
+Checking the size of the PriorityQueue
+Iterating over the elements
+
 
 When would we use data structures in the real world?
-Answer:
+Answer: Here are some examples of when data structures are used in the real world (Databases, Web Applications, Operating System, Networking, Compilers and Interpreters,Gaming)
 
 What is an Array?
-Answer:
+Answer: An array is a collection of items of same data type stored at contiguous memory locations.Arrays are fixed size and Zero_based indexing.
 
 What is the difference between Array and ArrayList?
-Answer:
+Answer:Arrays have a fixed size, can store both primitive and reference types, and require manual resizing and memory management. ArrayLists are dynamic, can only store reference types, automatically handle resizing and memory management, and provide additional methods and functionality for working with collections. The choice between Array and ArrayList depends on the specific requirements of your program, considering factors such as flexibility, performance, and ease of use.
 
 What is a LinkedList?
-Answer:
+Answer:a LinkedList is a data structure that represents a linear collection of elements, where each element is connected to the next element through a link or a reference. Unlike arrays, LinkedLists do not use contiguous memory allocation for storing elements. Instead, each element in a LinkedList is stored in a separate node that contains the element itself and a reference to the next node in the sequence.
+(Dynamic size, Node_based Structure, Sequential Access...)
 
 How is an Array different from LinkedList?
-Answer:
+Answer: Arrays offer efficient random access, better memory utilization, and suitability for scenarios where the size is fixed or indexing is important. LinkedLists provide dynamic size management, efficient insertion and removal, flexibility in memory usage, and suitability for scenarios where elements are frequently added or removed in the middle of the collection. The choice between Arrays and LinkedLists depends on the specific requirements of the program, considering factors such as access patterns, required operations, and memory constraints.
 
 What is a Queue?
-Answer:
+Answer: A queue is an abstract data type that represents a collection of elements with a specific ordering principle known as First-In-First-Out (FIFO). In a queue, elements are added to the end, known as the rear or tail, and removed from the front, known as the front or head. The element that has been in the queue the longest is the first one to be removed.
 
 What is a Stack (referring to data structures)?
-Answer:
-
+A stack is an abstract data type that represents a collection of elements with a specific ordering principle known as Last-In-First-Out (LIFO). In a stack, elements are added and removed from the same end, known as the top. The last element added to the stack is the first one to be removed.
 What is FIFO and LIFO?
 Answer:
-
+FIFO (First-In-First-Out):
+FIFO, also known as a queue, is an ordering principle where the first element that enters a system or data structure is the first one to be processed or accessed. It follows the same principle as a queue of people waiting in line, where the first person to join the line is the first one to be served. Elements are added to the end of the queue and removed from the front.
+LIFO (Last-In-First-Out):
+LIFO, also known as a stack, is an ordering principle where the last element that enters a system or data structure is the first one to be processed or accessed. It follows the same principle as a stack of plates, where the last plate placed on top is the first one to be taken off. Elements are added to the top of the stack and removed from the top.
 Explain Big O Notation?
-Answer:
+Answer: Big O notation describes the growth rate of an algorithm relative to the input size, but it does not provide precise measurements of actual runtime. It helps in analyzing and comparing the efficiency of algorithms and making informed decisions when selecting the most suitable algorithm for a given problem based on its scalability and runtime behavior.
 
 What is the best case to search an element from an array?
-Answer:
+Answer: The best case for searching an element in an array occurs when the element is found at the very beginning of the array. In this scenario, the search operation can be completed in constant time, regardless of the size of the array
 
 What is the worst case to search an element from an array?
-Answer:
+Answer:The worst-case scenario for searching an element in an array occurs when the element is either not present in the array or is located at the very end of the array. In this case, the search algorithm would have to iterate through the entire array to determine the absence or locate the element.
 
 Describe what a tree data structure is?
-Answer:
+Answer:A tree is a widely used hierarchical data structure that represents a collection of elements in a hierarchical manner. It consists of nodes connected by edges, forming a directed acyclic graph. The tree structure is often used to represent relationships or hierarchies between elements.
 
 Describe what a graph data structure is?
-Answer:
+Answer:A graph is a data structure that represents a collection of interconnected nodes or vertices. It is composed of a set of vertices and a set of edges that connect pairs of vertices. Graphs are used to model relationships and connections between elements.
 
 What is the difference between the HashTable and HashMap?
 Answer:
+HashMap is non-synchronized. It is not thread-safe and can’t be shared between many threads without proper synchronization code whereas Hashtable is synchronized. It is thread-safe and can be shared with many threads.
+HashMap allows one null key and multiple null values whereas Hashtable doesn’t allow any null key or value.
+HashMap is generally preferred over HashTable if thread synchronization is not needed.
 
 How do HashMaps work in Java? How do they store values, and when are they useful?
-Answer:
+Answer:HashMaps are a powerful and widely used data structure in Java for efficient storage and retrieval of key-value pairs, providing flexibility, speed, and dynamic size adjustments.
+When you put a key-value pair into a HashMap, the key is passed through a hashing function that calculates an index or hash code. The hash code is used to determine the initial position or bucket in which the key-value pair will be stored
+A HashMap is divided into a fixed number of buckets or slots. Each bucket can hold multiple key-value pairs due to a technique called "chaining." Chaining means that if multiple key-value pairs have the same hash code (known as a hash code collision), they are stored as a linked list or other data structure within the same bucket.
+When you put a key-value pair into a HashMap, the hash code is used to calculate the bucket where the pair should be stored. If the bucket is empty, the pair is stored directly. If the bucket already contains key-value pairs, the HashMap checks if any of the existing keys match the new key. If a match is found, the existing value is replaced with the new value. If no match is found, the new key-value pair is added to the bucket using chaining.
+When you want to retrieve a value from a HashMap based on a key, the hashing function is used to calculate the bucket where the key should be found. The HashMap then traverses the linked list or other data structure within the bucket to find the key-value pair with a matching key. Once found, the value can be retrieved.
 
 What is ArrayIndexOutOfBoundsException in java? When does it occur?
-Answer:
+Answer: ArrayIndexOutOfBoundsException is a runtime exception in Java that occurs when you try to access an array element using an invalid index. It is thrown when the index provided is either negative or greater than or equal to the length of the array.
 
 What are the different ways of copying an array into another array?
 Answer:
-
+1.Manual Element-by-Element Copying
+2.The System.arraycopy() method is a built-in utility method in Java that can be used to efficiently copy elements from one array to another.
+3.The Arrays.copyOf() method allows you to create a new array that is a copy of the specified array with a specified length
 What is DFS and BFS?
-Answer:
+Answer: DFS and BFS are two popular graph traversal algorithms used to visit and explore all the nodes in a graph. They are commonly used for searching and traversing graphs or trees.
 
 What is Recursion?
-Answer:
+Answer: We can define a recursive method by including a call to the same method within its own body. When the method is invoked, it executes its logic and may call itself one or more times until a specific condition, known as the base case, is met. The base case defines when the recursion should stop, preventing an infinite loop.
 
 What are linear and non-linear data Structures?
 Answer:
-
+1. Linear data structures organize data elements in a sequential manner, where each element has a unique predecessor and successor, except for the first and last elements. Elements are accessed and processed in a linear order, typically from one end to the other
+2.Non-linear data structures organize data elements in a non-sequential manner, where each element can have multiple predecessors and successors, creating complex relationships and hierarchies. Elements are accessed and processed based on these relationships, and there is no fixed linear orde
 Outline different sorting algorithms and their time complexities:
-
+1.Bubble Sort:
+Time Complexity: O(n^2)
+Bubble sort repeatedly compares adjacent elements and swaps them if they are in the wrong order. The algorithm continues iterating through the array until no more swaps are required.
+2.Selection Sort:
+Time Complexity: O(n^2)
+Selection sort divides the input into a sorted and an unsorted region. It repeatedly selects the smallest element from the unsorted region and swaps it with the element at the beginning of the unsorted region.
+Insertion Sort:
+3.Time Complexity: O(n^2)
+Insertion sort builds the final sorted array one element at a time. It iterates through the array, shifting elements larger than the current value to the right and inserting the current value into the correct position in the sorted portion.
