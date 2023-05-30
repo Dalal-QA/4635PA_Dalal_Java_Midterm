@@ -17,20 +17,20 @@ public class FindLowestDifference {
            boolean isItInArray1 = false;
            boolean isInArray2 =false;
 
-           for(int x: array1){
+           for(int x: array1){   //for each element in the array1 check if it's equal to the lowest number (1)
                if (x ==lowestNumber){
                    isItInArray1 = true;
                    break;
                }
            }
-           for (int y: array2){
+           for (int y: array2){   //for each element in the array2 check if it's equal to the lowest number(1)
                if(y == lowestNumber){
                    isInArray2 =true;
                    break;
                }
 
            }
-           if(isItInArray1!= isInArray2){
+           if(isItInArray1!= isInArray2){ //if the lowest in array1 is not equal to the lowest number in the array2 then return the lowest number
                return lowestNumber;
            }
            lowestNumber++;
