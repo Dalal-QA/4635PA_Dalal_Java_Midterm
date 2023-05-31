@@ -1,10 +1,28 @@
 package codelab;
 
+import java.util.List;
+
 public class Student implements Comparable<Student> {
+
 
     private String firstName;
     private String lastName;
     private int numberOfExercisesSolved;
+
+
+    private static double calculateAverageScore(List<Student> roster) {
+        if (roster.isEmpty()) {
+            return 0.0;
+        }
+        int totalSolutions = 0;
+        int studentCount = 0;
+        for (Student student : roster) {
+            totalSolutions += student.getNumberOfExercisesSolved();
+            studentCount++;
+        }
+
+        double averageScore = (double) totalSolutions / studentCount;
+        return averageScore;}
 
     public Student(String firstName, String lastName, int numberOfExercisesSolved) {
         this.firstName = firstName;
@@ -44,4 +62,7 @@ public class Student implements Comparable<Student> {
         return student.getNumberOfExercisesSolved() - this.getNumberOfExercisesSolved();
     }
 
-}
+
+
+    }
+

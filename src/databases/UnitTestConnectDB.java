@@ -12,43 +12,41 @@ public class UnitTestConnectDB {
     /**
      * Use this class to unit test the SharedStepsDatabase class
      */
-
+  //Note : I changed the queries because I am working with database WORLD
     public static void main(String[] args) throws Exception {
 
-        SharedStepsDatabase ssdb = new SharedStepsDatabase();
-
-         //region ExecuteQueryReadOne
-        String query = "SELECT* FROM WORLD.CITY LIMIT 10";
-        String result = ssdb.executeQueryReadOne(query);
-
-        System.out.println(result);
-         //endregion
-
-         //region executeQueryReadAllSingleColumn
-        String queryTwo = "SELECT * FROM WORLD.CITY LIMIT 10";
-        List<String> results = ssdb.executeQueryReadAllSingleColumn(queryTwo, "Population");
-
-        for (String s : results) {
-            System.out.println(s);
-        }
+       SharedStepsDatabase ssdb = new SharedStepsDatabase();
+//
+//         //region ExecuteQueryReadOne
+//        String query = "SELECT* FROM WORLD.CITY LIMIT 10";
+//        String result = ssdb.executeQueryReadOne(query);
+//
+//        System.out.println(result);
+//         //endregion
+//
+//         //region executeQueryReadAllSingleColumn
+//        String queryTwo = "SELECT * FROM WORLD.CITY LIMIT 10";
+//        List<String> results = ssdb.executeQueryReadAllSingleColumn(queryTwo, "Population");
+//
+//        for (String s : results) {
+//            System.out.println(s);
+//        }
 
          //endregion
 
          //region executeQueryReadAll
-//        String queryThree = "SELECT * FROM EMPLOYEES.EMPLOYEES E " +
-//                       "INNER JOIN EMPLOYEES.DEPT_EMP DE ON E.EMP_NO = DE.EMP_NO " +
-//                       "WHERE E.FIRST_NAME LIKE 'Alain'";
-//
-//        List<List<String>> data = ssdb.executeQueryReadAll(queryThree);
-//
-//        if (data != null) {
-//            for (List<String> row : data) {
-//                for (String cell : row) {
-//                    System.out.print(cell + "\t\t");
-//                }
-//                System.out.println();
-//            }
-//        }
+        String queryThree ="SELECT city.Name , countrylanguage.Language FROM city INNER JOIN countrylanguage ON city.CountryCode = countrylanguage.CountryCode";
+
+        List<List<String>> data = ssdb.executeQueryReadAll(queryThree);
+
+        if (data != null) {
+            for (List<String> row : data) {
+                for (String cell : row) {
+                    System.out.print(cell + "\t\t");
+                }
+                System.out.println();
+            }
+        }
 
          //endregion
 
@@ -81,10 +79,10 @@ public class UnitTestConnectDB {
 //
 //        ssdb.insertMap("test_insert_map", map);
 //
-//        String query = "SELECT * FROM TEST_INSERT_MAP";
-//        List<List<String>> results = ssdb.executeQueryReadAll(query);
+//        String querySix= "SELECT * FROM TEST_INSERT_MAP";
+//        List<List<String>> results6 = ssdb.executeQueryReadAll(querySix);
 //
-//        for (List<String> row : results) {
+//        for (List<String> row : results6) {
 //            for (String cell : row) {
 //                System.out.print(cell + "\t\t");
 //            }
