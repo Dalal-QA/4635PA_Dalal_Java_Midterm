@@ -54,5 +54,14 @@ public class UnitTestSorting {
             System.out.println(num + " ");
             Assert.assertEquals(unSortedArray, sortedArray, "ARRAY IS NOT SORTED... YET!");
         }
+
+        unSortedArray = sorting.shellSort(unSortedArray);
+        System.out.println("Sorted array using heap sort: ");
+        for (int num : unSortedArray) {
+            System.out.println(num + " ");
+            Assert.assertEquals(unSortedArray, sortedArray, "ARRAY IS NOT SORTED... YET!");
+        }
+
+
     }
 }

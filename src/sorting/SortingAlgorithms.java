@@ -116,12 +116,54 @@ public class SortingAlgorithms {
 
 
          public int[] heapSort ( int[] array){
+             int n = array.length;
 
+             // Build max heap
+             for (int i = n / 2 - 1; i >= 0; i--) {
+                 heapify(array, n, i);
+             }
 
-                    return array;
+             // Extract elements from the heap in a sorted order
+             for (int i = n - 1; i >= 0; i--) {
+                 // Swap the root (maximum element) with the last element
+                 int temp = array[0];
+                 array[0] = array[i];
+                 array[i] = temp;
 
+                 // Heapify the reduced heap
+                 heapify(array, i, 0);
+             }
 
-                }
+             return array;
+         }
+
+    private void heapify(int[] array, int n, int i) {
+        int largest = i; // Initialize largest as the root
+        int leftChild = 2 * i + 1;
+        int rightChild = 2 * i + 2;
+
+        // If the left child is larger than the root
+        if (leftChild < n && array[leftChild] > array[largest]) {
+            largest = leftChild;
+        }
+
+        // If the right child is larger than the largest so far
+        if (rightChild < n && array[rightChild] > array[largest]) {
+            largest = rightChild;
+        }
+
+        // If the largest is not the root
+        if (largest != i) {
+            // Swap the largest element with the root
+            int swap = array[i];
+            array[i] = array[largest];
+            array[largest] = swap;
+
+            // Recursively heapify the affected sub-tree
+            heapify(array, n, largest);
+        }
+
+    }
 
        public int[] bucketSort ( int[] array){
 

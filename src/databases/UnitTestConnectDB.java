@@ -17,24 +17,24 @@ public class UnitTestConnectDB {
 
         SharedStepsDatabase ssdb = new SharedStepsDatabase();
 
-        // region ExecuteQueryReadOne
-//        String query = "SELECT * FROM EMPLOYEES.EMPLOYEES LIMIT 10";
-//        String result = ssdb.executeQueryReadOne(query);
-//
-//        System.out.println(result);
-        // endregion
+         //region ExecuteQueryReadOne
+        String query = "SELECT* FROM WORLD.CITY LIMIT 10";
+        String result = ssdb.executeQueryReadOne(query);
 
-        // region executeQueryReadAllSingleColumn
-//        String queryTwo = "SELECT * FROM EMPLOYEES.EMPLOYEES LIMIT 10";
-//        List<String> results = ssdb.executeQueryReadAllSingleColumn(queryTwo, "last_name");
-//
-//        for (String s : results) {
-//            System.out.println(s);
-//        }
+        System.out.println(result);
+         //endregion
 
-        // endregion
+         //region executeQueryReadAllSingleColumn
+        String queryTwo = "SELECT * FROM WORLD.CITY LIMIT 10";
+        List<String> results = ssdb.executeQueryReadAllSingleColumn(queryTwo, "Population");
 
-        // region executeQueryReadAll
+        for (String s : results) {
+            System.out.println(s);
+        }
+
+         //endregion
+
+         //region executeQueryReadAll
 //        String queryThree = "SELECT * FROM EMPLOYEES.EMPLOYEES E " +
 //                       "INNER JOIN EMPLOYEES.DEPT_EMP DE ON E.EMP_NO = DE.EMP_NO " +
 //                       "WHERE E.FIRST_NAME LIKE 'Alain'";
@@ -50,15 +50,15 @@ public class UnitTestConnectDB {
 //            }
 //        }
 
-        // endregion
+         //endregion
 
-        // region InsertString
+         //region InsertString
 //        ssdb.insertString("test_insert_string", "test_string", "Testing String Insertion");
 //        System.out.println(ssdb.executeQueryReadAllSingleColumn("SELECT * FROM TEST_INSERT_STRING", 2).get(0));
 
-        // endregion
+         //endregion
 
-        // region insertList
+//         //region insertList
 //        List<Object> names = new ArrayList<>();
 //        names.add("Student1");
 //        names.add("Student2");
@@ -71,10 +71,10 @@ public class UnitTestConnectDB {
 //        for (String s: results) {
 //            System.out.println(s);
 //        }
-
-        // endregion
-
-        // region insertMap
+//
+//         //endregion
+//
+//         //region insertMap
 //        HashMap<Object, Object> map = new HashMap<>();
 //        map.put("Student1", 7934);
 //        map.put("Student2", 6319);
@@ -91,7 +91,7 @@ public class UnitTestConnectDB {
 //            System.out.println();
 //        }
 
-        // endregion
+         //endregion
 
         ssdb.closeResources();
 
