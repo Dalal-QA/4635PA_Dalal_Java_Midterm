@@ -30,7 +30,6 @@ public class Palindrome {
 
     public static void main(String[] args) {
 
-
         String str1 = "MOM";
         boolean isPalindrome1 = isPalindrome(str1);
         System.out.println(str1 + " is a palindrome? " + isPalindrome1);
@@ -48,8 +47,5 @@ public class Palindrome {
         System.out.println(str4 + " is a palindrome? " + isPalindrome4);
 
     }
-
-
-
 
 }
