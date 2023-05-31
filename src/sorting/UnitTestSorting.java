@@ -22,5 +22,37 @@ public class UnitTestSorting {
         // Verify if the unsorted array is sorted by the desired method
         Assert.assertEquals(unSortedArray, sortedArray, "ARRAY IS NOT SORTED... YET!");
 
+        //check if the bubble sort woks as expected
+        unSortedArray = sorting.bubbleSort(unSortedArray);
+        System.out.println("Sorted array using bubble sort: ");
+        for (int num : unSortedArray) {
+            System.out.println(num + " ");
+            Assert.assertEquals(unSortedArray, sortedArray, "ARRAY IS NOT SORTED... YET!");
+        }
+
+        //check if the bucket sort works as expected
+        unSortedArray = sorting.bucketSort(unSortedArray);
+        System.out.println("Sorted array using bucket sort: ");
+        for (int num : unSortedArray) {
+            System.out.println(num + " ");
+            Assert.assertEquals(unSortedArray, sortedArray, "ARRAY IS NOT SORTED... YET!");
+        }
+
+        //Check if the quick sorting work
+        unSortedArray = sorting.quickSort(unSortedArray);
+        System.out.println("Sorted array using quick sort : ");
+        for (int num : unSortedArray) {
+            System.out.println(num + " ");
+            Assert.assertEquals(unSortedArray, sortedArray, "ARRAY IS NOT SORTED... YET!");
+
+        }
+
+        //Check if the shell sort works as expected
+        unSortedArray = sorting.shellSort(unSortedArray);
+        System.out.println("Sorted array using shell sort: ");
+        for (int num : unSortedArray) {
+            System.out.println(num + " ");
+            Assert.assertEquals(unSortedArray, sortedArray, "ARRAY IS NOT SORTED... YET!");
+        }
     }
 }

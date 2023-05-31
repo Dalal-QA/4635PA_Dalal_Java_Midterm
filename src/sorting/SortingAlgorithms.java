@@ -1,14 +1,18 @@
 package sorting;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class SortingAlgorithms {
 
 
-    /** INSTRUCTIONS
+    /**
+     * INSTRUCTIONS
      * You must implement all of the sorting algorithms below. Feel free to add any helper methods that you may need,
      * but make sure they are private, as to not be accessed outside of this class.
-     *
+     * <p>
      * You must also store the sorted arrays into their own individual database tables (Selection Sort should be stored
-     *  in table `selection_sort`, Insertion Sort should be stored in table `insertion_sort`)
+     * in table `selection_sort`, Insertion Sort should be stored in table `insertion_sort`)
      */
 
     long executionTime = 0;
@@ -51,38 +55,139 @@ public class SortingAlgorithms {
     }
 
     public int[] bubbleSort(int[] array) {
-        // IMPLEMENT HERE
 
-        return array;
+        int length = array.length;
+        int temp;
+
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+            return array;
+        }
+
+
+
+        public int[] mergeSort ( int[] array){
+
+
+                    return array;
+                }
+
+        public int[] quickSort ( int[] array){
+            quickSortHelper(array, 0, array.length - 1);
+            return array;
+        }
+
+    private void quickSortHelper(int[] array, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(array, low, high);
+            quickSortHelper(array, low, pivotIndex - 1);
+            quickSortHelper(array, pivotIndex + 1, high);
+        }
     }
 
-    public int[] mergeSort(int[] array) {
-        // IMPLEMENT HERE
+    private int partition(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = low - 1;
 
-        return array;
+        for (int j = low; j < high; j++) {
+            if (array[j] < pivot) {
+                i++;
+                swap(array, i, j);
+            }
+        }
+
+        swap(array, i + 1, high);
+        return i + 1;
     }
 
-    public int[] quickSort(int[] array) {
-        // IMPLEMENT HERE
-
-        return array;
+    private void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
-    public int[] heapSort(int[] array) {
-        // IMPLEMENT HERE
 
-        return array;
+
+         public int[] heapSort ( int[] array){
+
+
+                    return array;
+
+
+                }
+
+       public int[] bucketSort ( int[] array){
+
+           if (array.length == 0)
+               return array;
+
+           // Find the maximum and minimum values in the array
+           int minValue = array[0];
+           int maxValue = array[0];
+           for (int i = 1; i < array.length; i++) {
+               if (array[i] < minValue)
+                   minValue = array[i];
+               else if (array[i] > maxValue)
+                   maxValue = array[i];
+           }
+
+           // Calculate the number of buckets
+           int numBuckets = (maxValue - minValue) / array.length + 1;
+           ArrayList<ArrayList<Integer>> buckets = new ArrayList<>(numBuckets);
+           for (int i = 0; i < numBuckets; i++) {
+               buckets.add(new ArrayList<>());
+           }
+
+           // Assign each element to its corresponding bucket
+           for (int i = 0; i < array.length; i++) {
+               int bucketIndex = (array[i] - minValue) / array.length;
+               buckets.get(bucketIndex).add(array[i]);
+           }
+
+           // Sort each bucket and concatenate the sorted buckets
+           int currentIndex = 0;
+           for (int i = 0; i < numBuckets; i++) {
+               ArrayList<Integer> bucket = buckets.get(i);
+               Collections.sort(bucket);
+               for (int j = 0; j < bucket.size(); j++) {
+                   array[currentIndex] = bucket.get(j);
+                   currentIndex++;
+               }
+           }
+
+           return array;
     }
 
-    public int[] bucketSort(int[] array) {
-        //implement here
+          public int[] shellSort ( int[] array){
 
-        return array;
-    }
+                    int n = array.length;
+                    int gap = n / 2;
 
-    public int[] shellSort(int[] array) {
-        //implement here
+                    while (gap > 0) {
+                        for (int i = gap; i < n; i++) {
+                            int temp = array[i];
+                            int j = i;
 
-        return array;
-    }
-}
+                            while (j >= gap && array[j - gap] > temp) {
+                                array[j] = array[j - gap];
+                                j -= gap;
+                            }
+
+                            array[j] = temp;
+                        }
+
+                        gap /= 2;
+                    }
+
+                    return array;
+                }
+            }
+
+
