@@ -3,6 +3,8 @@ package sorting;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.fasterxml.jackson.annotation.JsonAutoDetect.Value.merge;
+
 public class SortingAlgorithms {
 
 
@@ -75,9 +77,48 @@ public class SortingAlgorithms {
 
         public int[] mergeSort ( int[] array){
 
-
-                    return array;
+                if (array.length <= 1) {
+                    return array; // Base case: already sorted
                 }
+
+                int mid = array.length / 2;
+                int[] left = new int[mid];
+                int[] right = new int[array.length - mid];
+
+                System.arraycopy(array, 0, left, 0, left.length);
+                System.arraycopy(array, mid, right, 0, right.length);
+
+                left = mergeSort(left); // Sort the left half
+                right = mergeSort(right); // Sort the right half
+
+                return merge(left, right);
+            }
+    private int[] merge(int[] left, int[] right) {
+        int[] merged = new int[left.length + right.length];
+        int i = 0, j = 0, k = 0;
+
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                merged[k++] = left[i++];
+            } else {
+                merged[k++] = right[j++];
+            }
+        }
+
+        while (i < left.length) {
+            merged[k++] = left[i++];
+        }
+
+        while (j < right.length) {
+            merged[k++] = right[j++];
+        }
+
+        return merged;
+    }
+
+
+
+
 
         public int[] quickSort ( int[] array){
             quickSortHelper(array, 0, array.length - 1);

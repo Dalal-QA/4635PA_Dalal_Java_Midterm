@@ -3,7 +3,7 @@ package company_app_design;
 import java.time.Period;
 import java.util.Scanner;
 
-public class EmployeeInfo {
+public class EmployeeInfo extends EmployeeImplementation{
 
     /**
      * INSTRUCTIONS
@@ -51,6 +51,9 @@ public class EmployeeInfo {
 
     }
 
+    public EmployeeInfo() {
+
+    }
 
 
     /*
@@ -125,6 +128,35 @@ public class EmployeeInfo {
             yearDifference -= 1;
         return yearDifference;
     }
+
+    @Override
+    public int employeeId() {
+        return 0;
+    }
+
+    @Override
+    public String employeeName() {
+        return null;
+    }
+
+    @Override
+    public void assignDepartment() {
+
+    }
+
+    @Override
+    public int calculateSalary() {
+        return 0;
+    }
+
+    @Override
+    public void benefits() {
+        int salary = 60000;
+       double benefitPercentage =0.1;
+       double benefits = salary*benefitPercentage;
+        System.out.println("The benefits of this emplyee salary is: " + benefits);
+    }
+
 
 
     private static class DateConversion {
