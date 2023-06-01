@@ -1,37 +1,57 @@
 package company_app_design;
 
+import java.time.Period;
 import java.util.Scanner;
 
 public class EmployeeInfo {
 
-    /** INSTRUCTIONS
-     *
+    /**
+     * INSTRUCTIONS
+     * <p>
      * This class should implement the Employee interface, but you must do that without using the keyword `implements`
      * anywhere in this class.
-     *
+     * <p>
      * HINT: Take a look at the collections framework diagram. Do you see how a class may implement an interface without
-     *       directly implementing it?
-     *
+     * directly implementing it?
+     * <p>
      * YOU MUST USE/DO:
-     *         OOP (Abstraction, Encapsulation, Inheritance and Polymorphism) concepts in every way possible
-     *         Use all kind of keywords (super, this, static, final, etc)
-     *         Implement nested class below (DateConversion)
-     *         Use Exception Handling
-     *
+     * OOP (Abstraction, Encapsulation, Inheritance and Polymorphism) concepts in every way possible
+     * Use all kind of keywords (super, this, static, final, etc)
+     * Implement nested class below (DateConversion)
+     * Use Exception Handling
+     * <p>
      * Once you're done with designing this EmployeeInfo class, go to the CompanyEmployee class to test
      */
 
     // Make sure to declare and use static, non-static & final fields
+
+    private int employeeId;
+    private String employeeName;
+    private double grossSalary;
+    public String department;
     static final String companyName = "Tesla";
+    private String employeeAddress;
+    private long employeeSSN;
 
     // You must have/use multiple constructors to initialize instance variables that you will create above
+
+    public EmployeeInfo(String employeeName, int employeeId, double grossSalary){
+        this.employeeName=employeeName;
+        this.employeeId=employeeId;
+        this.grossSalary=grossSalary;
+    }
+    public EmployeeInfo(long employeeSSN, String employeeAddress) {
+        this.employeeAddress = employeeAddress;
+        this.employeeSSN = employeeSSN;
+
+    }
+
     public EmployeeInfo(int employeeId) {
+        this.employeeId = employeeId;
 
     }
 
-    public EmployeeInfo(String name, int employeeId) {
 
-    }
 
     /*
     You need to implement the logic of this method as such:
@@ -44,7 +64,15 @@ public class EmployeeInfo {
      */
     public static int calculateAnnualBonus(int salary, int performanceGrade) {
         int total = 0;
-
+        if (performanceGrade == 1) {
+            total = (int) (salary * 0.1);
+        } else if (performanceGrade == 2) {
+            total = (int) (salary * 0.06);
+        } else if (performanceGrade == 3) {
+            total = (int) (salary * 0.03);
+        } else {
+            total = 0;
+        }
 
         return total;
     }
@@ -62,16 +90,42 @@ public class EmployeeInfo {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter start date in format (example: May,2015): ");
         String joiningDate = sc.nextLine();
+        String convertedJoiningDate = DateConversion.convertDate(joiningDate);
+        if(convertedJoiningDate.isEmpty()){
+            return 0;
+        }
         System.out.println("Please enter today's date in format (example: August,2017): ");
         String todaysDate = sc.nextLine();
-        String convertedJoiningDate = DateConversion.convertDate(joiningDate);
         String convertedTodaysDate = DateConversion.convertDate(todaysDate);
-
+        if(convertedTodaysDate.isEmpty()){
+            return 0;
+        }
+        int salary = 0;
+        System.out.println("Please enter your salary: ");
+        try {
+            salary = sc.nextInt();
+        }
+        catch(Exception e){
+            System.out.println("This is not a valid salary");
+            return 0;
+        }
         // Figure out how to extract the number of years the employee has been with the company, using the above 2 dates
         // Calculate pension
-
         return total;
     }
+    public static int getNumberOfYears(String date1, String date2){
+        String[] extractDate1 = date1.split("/");
+        String[] extractDate2 = date2.split("/");
+        int month1 = Integer.parseInt(extractDate1[0]);
+        int month2 = Integer.parseInt(extractDate2[0]);
+        int year1 = Integer.parseInt(extractDate1[1]);
+        int year2 = Integer.parseInt(extractDate2[1]);
+        int yearDifference =  year2 - year1;
+        if(month2 < month1)
+            yearDifference -= 1;
+        return yearDifference;
+    }
+
 
     private static class DateConversion {
 
@@ -132,4 +186,49 @@ public class EmployeeInfo {
             return monthNumber;
         }
     }
+
+    //Encapsulation
+    public String getEmployeeAddress() {
+        return this.employeeAddress;
+    }
+
+    public void setEmployeeAddress(String employeeAddress) {
+        this.employeeAddress = employeeAddress;
+    }
+
+    public void setEmployeeSSN(long employeeSSN) {
+        this.employeeSSN = employeeSSN;
+
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
+    public double getGrossSalary() {
+        return grossSalary;
+    }
+
+    public void setGrossSalary(double salary) {
+        this.grossSalary = salary;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public double calculateNetSalary(double grossSalary, double taxRate, double deductions) {
+        double netSalary = grossSalary - (grossSalary * taxRate) - deductions;
+        return netSalary;
+    }
 }
+
+
