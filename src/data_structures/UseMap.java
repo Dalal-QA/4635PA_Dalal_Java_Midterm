@@ -46,7 +46,7 @@ public class UseMap {
     }
 
     static class SharedStepsDatabase {
-        private String url = "jdbc:mysql://localhost/world?serverTimezone=UTC&useSSL=false";
+        private String url = "jdbc:mysql://localhost/midterm_java?serverTimezone=UTC&useSSL=false";
         private String username = "root";
         private String password = "AydenLiam1213$";
 
@@ -70,26 +70,26 @@ public class UseMap {
             }
         }
 
-//        public void retrieveData(String tableName) {
-//            try {
-//                connection = DriverManager.getConnection(url, username, password);
-//                String selectQuery = "SELECT * FROM " + tableName;
-//                Statement statement = connection.createStatement();
-//                ResultSet resultSet = statement.executeQuery(selectQuery);
-//
-//                while (resultSet.next()) {
-//                    Object key = resultSet.getObject("key_column");
-//                    Object value = resultSet.getObject("value_column");
-//                    System.out.println("KEY: " + key);
-//                    System.out.println("VALUE: " + value);
-//                }
-//
-//                resultSet.close();
-//                statement.close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        public void retrieveData(String tableName) {
+            try {
+                connection = DriverManager.getConnection(url, username, password);
+                String selectQuery = "SELECT * FROM " + tableName;
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(selectQuery);
+
+                while (resultSet.next()) {
+                    Object key = resultSet.getObject("key_column");
+                    Object value = resultSet.getObject("value_column");
+                    System.out.println("KEY: " + key);
+                    System.out.println("VALUE: " + value);
+                }
+
+                resultSet.close();
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 }

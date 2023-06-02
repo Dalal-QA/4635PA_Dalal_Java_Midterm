@@ -147,7 +147,7 @@ Is JVM platform independent?
 Answer: Yes, the JVM (Java Virtual Machine) is platform-independent. One of the key advantages of Java is its ability to write code once and run it anywhere, and the JVM plays a significant role in achieving this platform independence.
 
 What version of Java are you using?
-Answer: Java 17
+Answer: Java 20.0.1  and java 17.0.7
 
 What does JAR stand for?
 Answer: Java ARchive.
