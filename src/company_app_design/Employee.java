@@ -18,7 +18,7 @@ public interface Employee {
 
     String employeeName();
 
-    void assignDepartment();
+    String assignDepartment();
 
     int calculateSalary();
 

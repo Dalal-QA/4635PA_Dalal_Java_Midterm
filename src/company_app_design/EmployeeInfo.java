@@ -145,17 +145,23 @@ public class EmployeeInfo extends EmployeeImplementation{
     }
 
     @Override
-    public void assignDepartment() {
-//     Scanner sc =new Scanner(System.in);
-//        System.out.println("Please enter your valid ID");
-//
-//        if( id<= 100) {
-//            department = "department of logistics";
-//        }else if(id>=101 && id<=300){
-//            department="department of energy";
-//        }else if(id)
-//
-//        }
+    public String assignDepartment() {
+     Scanner sc =new Scanner(System.in);
+        System.out.println("Please enter your valid ID");
+        int employeeId = sc.nextInt();
+
+        if( id<= 100) {
+            department = "Department of logistics";
+        }else if(id>=101 && id<=300){
+            department="department of engineering";
+        }else if(id>=301 && id<=600){
+            department="Department of design";
+        }else{
+            department ="Department Unkown";
+
+        }
+        return "Your department is:" +department;
+
     }
 
     @Override
