@@ -1,6 +1,5 @@
 package company_app_design;
 
-import java.time.Period;
 import java.util.Scanner;
 
 public class EmployeeInfo extends EmployeeImplementation{
@@ -28,9 +27,11 @@ public class EmployeeInfo extends EmployeeImplementation{
     private int employeeId;
     private String employeeName;
     private double grossSalary;
+    private String employeeAddress;
     public String department;
     static final String companyName = "Tesla";
-    private String employeeAddress;
+    private int id;
+
     private long employeeSSN;
 
     // You must have/use multiple constructors to initialize instance variables that you will create above
@@ -44,6 +45,9 @@ public class EmployeeInfo extends EmployeeImplementation{
         this.employeeAddress = employeeAddress;
         this.employeeSSN = employeeSSN;
 
+    }
+    public EmployeeInfo(String employeeName){
+        this.employeeName=employeeName;
     }
 
     public EmployeeInfo(int employeeId) {
@@ -131,30 +135,47 @@ public class EmployeeInfo extends EmployeeImplementation{
 
     @Override
     public int employeeId() {
-        return 0;
+        return this.employeeId;
     }
 
     @Override
     public String employeeName() {
-        return null;
+
+        return this.employeeName;
     }
 
     @Override
     public void assignDepartment() {
-
+//     Scanner sc =new Scanner(System.in);
+//        System.out.println("Please enter your valid ID");
+//
+//        if( id<= 100) {
+//            department = "department of logistics";
+//        }else if(id>=101 && id<=300){
+//            department="department of energy";
+//        }else if(id)
+//
+//        }
     }
 
     @Override
     public int calculateSalary() {
-        return 0;
-    }
+
+            Scanner stdin = new Scanner(System.in);
+            System.out.println("Enter your grossPay");
+            int grossPay = stdin.nextInt();
+            int payPeriodPerYear = 12;
+            System.out.print("Your salary is ");
+            return grossPay * payPeriodPerYear;
+        }
 
     @Override
-    public void benefits() {
+    public double benefits() {
         int salary = 60000;
-       double benefitPercentage =0.1;
-       double benefits = salary*benefitPercentage;
+        double benefitPercentage =0.1;
+        double benefits = salary*benefitPercentage;
         System.out.println("The benefits of this emplyee salary is: " + benefits);
+        return benefitPercentage;
     }
 
 
@@ -169,6 +190,7 @@ public class EmployeeInfo extends EmployeeImplementation{
             String actualDate = monthDate + "/" + extractMonth[1];
             return actualDate;
         }
+    }
 
         public static int whichMonth(String givenMonth) {
             Months month = Months.valueOf(givenMonth);
@@ -217,21 +239,31 @@ public class EmployeeInfo extends EmployeeImplementation{
             }
             return monthNumber;
         }
-    }
 
     //Encapsulation
-    public String getEmployeeAddress() {
-        return this.employeeAddress;
-    }
+        public double getGrossSalary() {
+            return grossSalary;
+        }
 
-    public void setEmployeeAddress(String employeeAddress) {
-        this.employeeAddress = employeeAddress;
-    }
+        public void setGrossSalary(double grossSalary) {
+            this.grossSalary = grossSalary;
+        }
 
-    public void setEmployeeSSN(long employeeSSN) {
-        this.employeeSSN = employeeSSN;
+        public String getEmployeeAddress() {
+            return employeeAddress;
+        }
 
-    }
+        public void setEmployeeAddress(String employeeAddress) {
+            this.employeeAddress = employeeAddress;
+        }
+
+        public long getEmployeeSSN() {
+            return employeeSSN;
+        }
+
+        public void setEmployeeSSN(long employeeSSN) {
+            this.employeeSSN = employeeSSN;
+        }
 
     public String getEmployeeName() {
         return employeeName;
@@ -239,14 +271,6 @@ public class EmployeeInfo extends EmployeeImplementation{
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
-    }
-
-    public double getGrossSalary() {
-        return grossSalary;
-    }
-
-    public void setGrossSalary(double salary) {
-        this.grossSalary = salary;
     }
 
     public int getEmployeeId() {
@@ -257,10 +281,17 @@ public class EmployeeInfo extends EmployeeImplementation{
         this.employeeId = employeeId;
     }
 
+
+
+
+
+
+
     public double calculateNetSalary(double grossSalary, double taxRate, double deductions) {
         double netSalary = grossSalary - (grossSalary * taxRate) - deductions;
         return netSalary;
     }
 }
+
 
 
