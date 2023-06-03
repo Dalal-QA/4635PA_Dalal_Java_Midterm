@@ -159,19 +159,19 @@ public class SortingAlgorithms {
          public int[] heapSort ( int[] array){
              int n = array.length;
 
-             // Build max heap
+
              for (int i = n / 2 - 1; i >= 0; i--) {
                  heapify(array, n, i);
              }
 
-             // Extract elements from the heap in a sorted order
+
              for (int i = n - 1; i >= 0; i--) {
-                 // Swap the root (maximum element) with the last element
+
                  int temp = array[0];
                  array[0] = array[i];
                  array[i] = temp;
 
-                 // Heapify the reduced heap
+
                  heapify(array, i, 0);
              }
 
@@ -200,7 +200,7 @@ public class SortingAlgorithms {
             array[i] = array[largest];
             array[largest] = swap;
 
-            // Recursively heapify the affected sub-tree
+
             heapify(array, n, largest);
         }
 
@@ -221,20 +221,20 @@ public class SortingAlgorithms {
                    maxValue = array[i];
            }
 
-           // Calculate the number of buckets
+
            int numBuckets = (maxValue - minValue) / array.length + 1;
            ArrayList<ArrayList<Integer>> buckets = new ArrayList<>(numBuckets);
            for (int i = 0; i < numBuckets; i++) {
                buckets.add(new ArrayList<>());
            }
 
-           // Assign each element to its corresponding bucket
+
            for (int i = 0; i < array.length; i++) {
                int bucketIndex = (array[i] - minValue) / array.length;
                buckets.get(bucketIndex).add(array[i]);
            }
 
-           // Sort each bucket and concatenate the sorted buckets
+
            int currentIndex = 0;
            for (int i = 0; i < numBuckets; i++) {
                ArrayList<Integer> bucket = buckets.get(i);
